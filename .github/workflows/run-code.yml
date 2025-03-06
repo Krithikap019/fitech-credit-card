@@ -1,0 +1,14 @@
+name: GitHub Case - FiTech
+on: [push, pull_request, fork]
+jobs:
+  build:
+    runs-on: self-hosted
+    container:
+      image: vnijs/rsm-msba-k8s:1.1.0
+      options: --user root
+    steps:
+      - uses: actions/checkout@v2
+      - name: Upgrade pyrsm
+        run: pip install --upgrade pyrsm
+      - name: Evaluate notebook
+        run: jupyter nbconvert --execute --to html fitech.ipynb
