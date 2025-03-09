@@ -4,7 +4,7 @@ jobs:
   build:
     runs-on: self-hosted
     container:
-      image: vnijs/rsm-msba-k8s:1.1.0
+      image: vnijs/rsm-msba-k8s-intel:1.1.0
       options: --user root
     steps:
       - uses: actions/checkout@v2
